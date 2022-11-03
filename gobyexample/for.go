@@ -42,4 +42,10 @@ func main() {
 	fmt.Println("\nOdd Sum:", oddSum)
 	fmt.Println("Even Sum:", evenSum)
 
+	fmt.Println()
+	fmt.Println("Basic Looping example")
+	for name := 10; name < 20; name++ {
+		fmt.Println("Looping index is: ", name)
+	}
+
 }
