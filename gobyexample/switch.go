@@ -64,4 +64,23 @@ func main() {
 	whatAmI(1)
 	whatAmI("str")
 	whatAmI(12.33)
+	fmt.Println()
+
+	// Specific Type is defined
+
+	storeSwitchFunctionInVariable := func(i int) {
+		switch i {
+		case 1:
+			println("1 is pressed")
+		case 2:
+			println("2 is pressed")
+
+		default:
+			println("wrong key is pressed")
+		}
+	}
+
+	storeSwitchFunctionInVariable(1)
+	storeSwitchFunctionInVariable(2)
+	storeSwitchFunctionInVariable(10)
 }
