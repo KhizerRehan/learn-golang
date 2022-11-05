@@ -28,6 +28,11 @@ func multipleParameters(a, b, c, d int) int {
 	return a + b + c + d
 }
 
+// https://gobyexample.com/multiple-return-values
+func multipleValuesReturned() (int, int) {
+	return 10, 20
+}
+
 func main() {
 	fmt.Println("Function")
 
@@ -45,4 +50,14 @@ func main() {
 
 	res = multipleParameters(2, 4, 6, 8)
 	fmt.Println("2+4+6+8 =", res)
+	fmt.Println()
+
+	// Here we use the 2 different return values from the call with multiple assignment.
+	a, b := multipleValuesReturned()
+	fmt.Println("A:", a)
+	fmt.Println("B:", b)
+
+	// If you only want a subset of the returned values, use the blank identifier _.
+	_, c := multipleValuesReturned()
+	fmt.Println(c)
 }
