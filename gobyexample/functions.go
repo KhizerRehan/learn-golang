@@ -33,6 +33,10 @@ func multipleValuesReturned() (int, int) {
 	return 10, 20
 }
 
+func multipleValuesReturnedOfDifferentTypes() (int, string, bool) {
+	return 50, "Khizer", true
+}
+
 func main() {
 	fmt.Println("Function")
 
@@ -60,4 +64,10 @@ func main() {
 	// If you only want a subset of the returned values, use the blank identifier _.
 	_, c := multipleValuesReturned()
 	fmt.Println(c)
+
+	d, e, f := multipleValuesReturnedOfDifferentTypes()
+
+	fmt.Println("D:", d)
+	fmt.Println("E:", e)
+	fmt.Println("E:", f)
 }
