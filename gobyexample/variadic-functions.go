@@ -4,6 +4,7 @@ import (
 	"fmt"
 )
 
+// function that will take an arbitrary number of ints as arguments.
 func sum(nums ...int) {
 	fmt.Print(nums, " ")
 	total := 0
