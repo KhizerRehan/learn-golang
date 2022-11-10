@@ -39,12 +39,12 @@ func main() {
 	zeroptr(&i)
 	fmt.Println("zeroptr:", i)
 
-	fmt.Println("pointer value:", i)
+	fmt.Println("pointer defrenced value:", i)
 	// The &i syntax gives the memory address of i, i.e. a pointer to i.
 	fmt.Println("pointer address:", &i)
 
 	// C++ Concepts
 	var value *int = &i
-	fmt.Println("pointer value:", value)
-	fmt.Println("pointer address:", *value)
+	fmt.Println("pointer address:", value)
+	fmt.Println("pointer defrenced value:", *value)
 }
