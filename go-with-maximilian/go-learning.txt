@@ -1,0 +1,15 @@
+Here's a list of the null values for the different types:
+
+int => 0
+float64 => 0.0
+string => "" (i.e., an empty string)
+bool => false
+
+
+----
+- go run . // in case multiple mains are declared will throw error
+- go run <file_name>
+
+
+
+- go mod init go-with-maximilian/best-practices
