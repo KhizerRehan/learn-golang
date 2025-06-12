@@ -10,6 +10,112 @@ bool => false
 - go run . // in case multiple mains are declared will throw error
 - go run <file_name>
 
-
-
 - go mod init go-with-maximilian/best-practices
+- defineing variable outside main can't use shorter symtax ":=" to init variable
+
+- Splitting Code to Multiple Files under same package 
+ - functions can be directly be used or imported under same package
+- Folder name should be SAME as of PACKAGE name NOT FILE name
+- variable/functions/constants/struts starts with PascalCasing (UpperCase) are availaible to other packages
+- default EXPORTS in case starts with CapitalLetter any function/varibale/constant name
+- How to Install Packages:
+ - e.g go get github.com/Pallinder/go-randomdata
+ - Updates go.mod file to add pkg
+ - Adds (first time) / Updates with hash
+- `go.mod -> Package + 3rd Party dependencies are listed here
+- It is important in go lang to handle return value when calling from caller 
+
+
+## Pointers
+- Directly mutate copies
+- Avoiding Unncessary Value Copy
+ - By default `Go` creates a copy when passing values 
+   to function
+e.g https://gyazo.com/c30dd05fb452f2707734679de88a3567
+
+
+func outputAge(age) -> byValue -> creating a copy of variable address
+func outputAge(&age) -> ByRef  -> mutating same address
+
+
+- All values in Go have a so-called "Null Value" - i.e., the value that's set as a default if no value is assigned to a variable.
+ - e.g 
+    - int variable is 0. 
+    - float64, it would be 0.0.
+    - string, it's "".
+    - pointer `nil` // special built into Go
+      - nil represents the absence of an address value - i.e., a pointer pointing at no address / no value in memory.
+      - In go you can't perform operations on pointer until you dereference value
+- In GoLang PackageName and func name can't be same
+
+
+## Structs
+- Group related data together using Structs
+- Struct in go are called either "Struct Literal" or "Composite Literal"
+- Pointer technically derefernce the structs internally via short way 
+   e.g u.firstName otherwise it should be like (*u).firstName
+- Reciever function is defined which automatically binds to struct level
+- Go also has byValue/ByReference concept when passing struts to either 
+   - Reciever function     (Link methods with structs)
+   - Method with Arguments (Not Linked to specific structs)
+- Go Provides to have Constructor function with `new` Convention only not by Go
+- Structs allowed validation logic very easy to do with in Constructor function
+
+// Capital P in Person make it exportable outside package also the fields inside package 
+ too e.g "Name/Age" all are exportable by go due to PascalCasing .
+  - This is only valid when structs lives in their own packages and needs to be exported to 
+   other packages
+
+type Person struct {
+	Name string
+	Age int
+	Email string
+	CreatedAt time.Time
+}
+
+- Structs has no classes and no Inheritance but it has concept called Struct Embedding aka 
+ using of 1 struct to another similar like we try to use existing class fields/methods in OOP 
+ based language we can do something like in structs too see eg. struct_embedding.go
+
+- Embedding Structs
+
+ type User struct {
+	// Explicitly set to lowercase to make it unexported
+	name  string
+	age   int
+	email string
+}
+
+type Admin struct {
+	User
+	role string
+}
+
+- With Annoymous Structs embedding e.g User instead of user User you can directly use reciever functions of User struct 
+from admin instance rather then creating wrapper reciever functions for Admin Struct e.g see `user_struct.go`
+
+
+- Struct tags are essentially metadata that you can add in structs fields e.g
+
+type Note struct {
+   Title: string          `json:"title"` // backticks and "property"
+   Content string         `json:"content"`
+   CreatedAt: time.Time   `json:"created_at"`
+}
+
+- You can build Custom Types and Reciever functions can be attached to custom types e.g custom_types.go
+
+---
+
+
+
+## Interface & Generic Code
+
+
+
+## Install Packages
+- go get github.com/Pallinder/go-randomdata
+
+Scan vs ScanLn 
+ - Scan doesn't closes stdin when pressing enter
+ - ScanLn does close stdin when pressing enter 
