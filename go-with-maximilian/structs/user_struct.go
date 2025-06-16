@@ -42,6 +42,8 @@ func New(name string, age int, email string) (*User, error) {
 	}, nil
 }
 
+// Struct Embedding
+
 func NewAdmin(name string, age int, email string, role string) (*Admin, error) {
 	user, err := New(name, age, email)
 

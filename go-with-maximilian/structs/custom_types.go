@@ -15,5 +15,4 @@ func CustomTypeWrapper() {
 
 	var customType2 CustomType = "Maximilian"
 	customType2.Print()
-	
 }

@@ -109,9 +109,76 @@ type Note struct {
 
 
 
-## Interface & Generic Code
+## Interfaces
+
+- You can define interfaces having methods that can be common can be defined in interfaces
+- Methods define in interface should be implemented individual in files otherw go will complain
+ e.g  X does not implement Y Interface
+
+ See e.g interface.go 
+  - SaveFile // method and custom business logic should be impl into respective files
+  - In Go Interface not needs to be explicitly connected with other types
+  - Go Validates whatever argument is passed if it does satisfy contract IMPL in concreate file it will 
+  will call respective method from respective concreate file to what ever it is passed.
+   - Think like instancs of Class it calls it respective method based on callee is called from instance
+  - Wrapper Func e.g SaveData accepts Interface argument 
+  - So Whenever this Wrapper Func is called with Passed args Go assume "Accpeted" argument 
+   implements that interface contract in concrete class
 
 
+
+Cursor Explanation:
+
+
+1: Embedding interfaces/structs: When you include an interface or struct name (without a field name) in your struct definition, you're embedding it. This is what you did with Saver and Printer in your struct.
+
+
+```go
+type EmbeddedSaverPrinter struct {
+    Name string
+    Saver    // This is embedding the Saver interface
+    Printer  // This is embedding the Printer interface
+}
+```
+
+Wrong:
+
+What you were trying to do with CustomDisplayer() inside the struct definition isn't valid Go syntax. 
+ You can't declare method signatures inside a struct - those belong in interfaces.
+
+```go
+type EmbeddedSaverPrinter struct {
+    Name string
+    Saver    // This is embedding the Saver interface
+    Printer  // This is embedding the Printer interface
+    CustomDisplayer()
+}
+```
+
+2: Defining methods: Methods are always defined outside the struct using the receiver syntax.
+
+```go
+func (e *EmbeddedSaverPrinter) CustomDisplayer() {
+    fmt.Println("Custom Displayer...")
+}
+```
+
+3:Inside your struct, this isn't valid Go syntax. You can embed types (interfaces or structs), but you can't embed method signatures or implementations.
+When you embed an interface like Saver, you're saying "this struct should have all the methods from Saver available" - but you still need to implement those methods outside the struct definition. Embedding doesn't automatically implement the methods.
+So yes, your struct can implement multiple interfaces and have additional methods, but all method implementations must be defined outside the struct definition using the receiver syntax.
+
+
+4: Correct way to add declaration in interface and embed interface in struct NOT in struct directly
+
+if you want to declare that a struct should have a certain method, you would:
+  - Create an interface with that method signature
+  - Either embed that interface in your struct or just implement the method
+  - Implement the method outside the struct definition
+The Go compiler doesn't need or allow method declarations inside structs because it uses "duck typing" - a struct implements an interface automatically if it has all the required methods, without needing to explicitly declare that relationship.
+
+Conclusion
+- if your struct has methods matching an interface's method signatures, it automatically implements that interface.
+- The compiler will check if your struct implements all required methods at compile time, but there's no way to declare method signatures inside the struct definition itself.
 
 ## Install Packages
 - go get github.com/Pallinder/go-randomdata
@@ -119,3 +186,10 @@ type Note struct {
 Scan vs ScanLn 
  - Scan doesn't closes stdin when pressing enter
  - ScanLn does close stdin when pressing enter 
+
+
+
+ ---
+
+ - use of .(type) outside type switch is only for switch statement to get type see e.g special_interface.go file
+ - Alternate syntax see e.g special_interface.go file

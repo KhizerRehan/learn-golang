@@ -3,6 +3,7 @@ package main // main package is the entry point of the program
 import (
 	"fmt" // fmt package is used to print the output
 	"learn-golang/go-with-maximilian/fileops"
+	"learn-golang/go-with-maximilian/interfaces"
 	"learn-golang/go-with-maximilian/pointers"
 	"learn-golang/go-with-maximilian/structs"
 	"learn-golang/go-with-maximilian/user"
@@ -15,7 +16,10 @@ func main() {
 	// pointersWrapper()
 	// structsWrapper()
 	// userWrapper()
-	customTypesWrapper()
+	// customTypesWrapper()
+	// interfacesWrapper()
+	// callEmbeddedInterface()
+	callAcceptAnyType()
 }
 
 func fileopsWrapper() {
@@ -101,4 +105,26 @@ func customTypesWrapper() {
 	fmt.Println("Custom Types")
 	fmt.Println("--------------------------------")
 	structs.CustomTypeWrapper()
+}
+
+func interfacesWrapper() {
+	fmt.Println("--------------------------------")
+	fmt.Println("Interfaces")
+	fmt.Println("--------------------------------")
+	interfaces.CallSaveTodo()
+	interfaces.CallSaveNote()
+}
+
+func callEmbeddedInterface() {
+	fmt.Println("--------------------------------")
+	fmt.Println("Embedded Interfaces")
+	fmt.Println("--------------------------------")
+	interfaces.CallEmbeddedInterface()
+}
+
+func callAcceptAnyType() {
+	fmt.Println("--------------------------------")
+	fmt.Println("Accept Any Type")
+	fmt.Println("--------------------------------")
+	interfaces.CallAcceptAnyType()
 }
