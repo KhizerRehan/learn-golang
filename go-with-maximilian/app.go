@@ -2,6 +2,7 @@ package main // main package is the entry point of the program
 
 import (
 	"fmt" // fmt package is used to print the output
+	"learn-golang/go-with-maximilian/arrayslicesmap"
 	"learn-golang/go-with-maximilian/fileops"
 	"learn-golang/go-with-maximilian/generics"
 	"learn-golang/go-with-maximilian/interfaces"
@@ -21,7 +22,12 @@ func main() {
 	// interfacesWrapper()
 	// callEmbeddedInterface()
 	// callAcceptAnyType()
-	callGenerics()
+	// callGenerics()
+	// callArraySlicesMap()
+	// callArray()	
+	// callSlices()
+	// callExerceis()
+	callMaps()
 }
 
 func fileopsWrapper() {
@@ -136,4 +142,40 @@ func callGenerics() {
 	fmt.Println("Generics")
 	fmt.Println("--------------------------------")
 	generics.CallReturnAnyTypeGeneric()
+}
+
+func callArraySlicesMap() {
+	fmt.Println("--------------------------------")
+	fmt.Println("Array Slices Map")
+	fmt.Println("--------------------------------")
+	arrayslicesmap.CallArraySlicesMap()
+}
+func callArray() {
+	fmt.Println("--------------------------------")
+	fmt.Println("Array")
+	fmt.Println("--------------------------------")
+	arrayslicesmap.CallArray()
+}
+
+func callSlices() {
+	fmt.Println("--------------------------------")
+	fmt.Println("Slices")
+	fmt.Println("--------------------------------")
+	arrayslicesmap.CallSlices()
+}
+
+func callExerceis() {
+	fmt.Println("--------------------------------")
+	fmt.Println("Exerceis")
+	fmt.Println("--------------------------------")
+	arrayslicesmap.CallExerceis()
+}
+
+func callMaps() {
+	fmt.Println("--------------------------------")
+	fmt.Println("Maps")
+	fmt.Println("--------------------------------")
+	arrayslicesmap.LearnMaps()
+	arrayslicesmap.MapUsingMake()
+	arrayslicesmap.MapUsingType()
 }

@@ -187,9 +187,75 @@ Scan vs ScanLn
  - Scan doesn't closes stdin when pressing enter
  - ScanLn does close stdin when pressing enter 
 
-
-
  ---
 
  - use of .(type) outside type switch is only for switch statement to get type see e.g special_interface.go file
  - Alternate syntax see e.g special_interface.go file
+
+ - slices [2:4] StartingIndex is included but values are included till EndingIndex-1
+ - you can't put index with higher bound in array e.g array[7] and you have only 6 len arrray
+   e.g panic: runtime error: slice bounds out of range [:10] with capacity 4
+ - you can't put -ve index in slice e.g array[-2] which works in JS but not in Go
+ - slices is by ref and can update value in original array
+  - you create 1 array in memeory and slices is just small window or reference to part of array 
+    and is pointing to same memory reference as original array.
+  - In slices cap is count towards end of the array based on slices is cretaed from
+  - In slices cap is omitted on left side
+
+
+  ## Maps
+
+  - Maps are always dynamic no Fixed size can be created
+  - Maps are mutable in go
+  - Deletion/Additon in Maps are done in original struct
+  - Access values in map using key instead of Indexes
+  - Map vs Struct
+    - you can't delete a key/value pair from a struct
+    - struct is good when you clear set of data 
+    - map is good when properties can be added/removed dynamically
+
+```go
+type Website struct {
+	Google string
+	Facebook string
+	Twitter string
+	Reddit string
+	Youtube string
+	Instagram string
+	Linkedin string
+}
+// vs 
+
+var websites := map[string][string]
+
+/*
+Reason-1:
+How it is easy to save ANY site value in map dynamically using maps where 
+in struct every different site has to define different website key/value 
+and define each value into it.
+
+Reason-2:
+
+In Struct you can't have e.g
+
+type Website struct {
+	AWS WEBSITE URL string
+}
+
+In Map You can have
+
+e.g 
+websites["AWS WEBSITE URL"] =  "https://aws.amazon.com/"
+*/
+
+```
+
+- In go when you do `[]string{}` you create a slice a dynamic slice
+- In go when you do `[3]string{}`you create an an array of fixed size and you can't append dynamically you would need to create a slice to append it
+- In go you can have special keyword called `make` which can preserved some slots and appending will done AFTER WORDS of preserved slots.
+  e.g  
+    - make([]string, 3) // Makeing dynamic slice with 3 preserved slot
+    - make(map[string]string, 10) // We can do the same with maps which is more memory efficent instead and instead of assigning it will 
+     have preserved memory (no relocate of memory) and in case maps becomes bigger it will try to use e.g 10 length before then 
+     after it in case 11th it will then reassign a new Map again IMO with 11 reserved which will be same as before without make(map[string]string, len)
+     and is not memory efficient
