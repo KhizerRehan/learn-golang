@@ -4,6 +4,7 @@ import (
 	"fmt" // fmt package is used to print the output
 	"learn-golang/go-with-maximilian/arrayslicesmap"
 	"learn-golang/go-with-maximilian/fileops"
+	"learn-golang/go-with-maximilian/functions"
 	"learn-golang/go-with-maximilian/generics"
 	"learn-golang/go-with-maximilian/interfaces"
 	"learn-golang/go-with-maximilian/pointers"
@@ -27,7 +28,10 @@ func main() {
 	// callArray()	
 	// callSlices()
 	// callExerceis()
-	callMaps()
+	// callMaps()
+	// callFunctions()
+	// callAnnonymousFunctions()
+	callClosure()
 }
 
 func fileopsWrapper() {
@@ -177,5 +181,25 @@ func callMaps() {
 	fmt.Println("--------------------------------")
 	arrayslicesmap.LearnMaps()
 	arrayslicesmap.MapUsingMake()
-	arrayslicesmap.MapUsingType()
+	arrayslicesmap.MapUsingType()	
+}
+
+func callFunctions() {
+	fmt.Println("--------------------------------")
+	fmt.Println("Functions")
+	fmt.Println("--------------------------------")
+	functions.CallFunctions()
+}
+
+func callAnnonymousFunctions() {
+	fmt.Println("--------------------------------")
+	fmt.Println("Annonymous Functions")
+	fmt.Println("--------------------------------")
+	functions.CallAnnonymousFunctions()
+}
+func callClosure() {
+	fmt.Println("--------------------------------")
+	fmt.Println("Closure")
+	fmt.Println("--------------------------------")
+	functions.CallClosure()
 }

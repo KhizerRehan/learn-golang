@@ -259,3 +259,18 @@ websites["AWS WEBSITE URL"] =  "https://aws.amazon.com/"
      have preserved memory (no relocate of memory) and in case maps becomes bigger it will try to use e.g 10 length before then 
      after it in case 11th it will then reassign a new Map again IMO with 11 reserved which will be same as before without make(map[string]string, len)
      and is not memory efficient
+
+
+## Functions
+- In functions we can pass functions as parametrs value for other funcitons
+- functions are just values in go
+- value you can execute when treated as function
+- value you can use as simple native int/string simple value
+- value you can pass around to functions
+
+
+
+Gotchas
+
+- Under same package go doesn't allow to have 
+ e.g functions name or type to be same in 1 package
