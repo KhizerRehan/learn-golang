@@ -54,15 +54,11 @@ func (t Note) SaveFile() error {
 
 // Exported Function
 func CallSaveNote() {
-	todo, err := NewNote("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.")
-
-	fmt.Println(todo.GetText())
-
+	note, err := NewNote("New Note Saved")
+	fmt.Println(note.GetText())
 	if err != nil {
 		fmt.Println("Error:", err)
 		return
 	}
-	
-
-	SaveData(todo)
+	SaveData(note)
 }

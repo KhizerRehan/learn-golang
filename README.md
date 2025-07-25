@@ -1,2 +1,6 @@
-`Continuation:`
-- https://gobyexample.com/methods
+## Resources:
+
+- https://gobyexample.com
+
+
+

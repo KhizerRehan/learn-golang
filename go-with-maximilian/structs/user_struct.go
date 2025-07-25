@@ -22,13 +22,13 @@ func New(name string, age int, email string) (*User, error) {
 	errorsList := []string{}
 
 	if(name == "") {
-		errorsList = append(errorsList, "name is required")
+		errorsList = append(errorsList, "Name is required")
 	}
 	if(age <= 0) {
-		errorsList = append(errorsList, "age is required and should be greater than 0")
+		errorsList = append(errorsList, "Age is required and should be greater than 0")
 	}
 	if(email == "") {
-		errorsList = append(errorsList, "email is required")
+		errorsList = append(errorsList, "Email is required")
 	}	
 
 	if(len(errorsList) > 0) {

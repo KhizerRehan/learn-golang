@@ -112,7 +112,7 @@ type Note struct {
 ## Interfaces
 
 - You can define interfaces having methods that can be common can be defined in interfaces
-- Methods define in interface should be implemented individual in files otherw go will complain
+- Methods define in interface should be implemented individual in files otherwise go will complain
  e.g  X does not implement Y Interface
 
  See e.g interface.go 
@@ -144,7 +144,7 @@ type EmbeddedSaverPrinter struct {
 Wrong:
 
 What you were trying to do with CustomDisplayer() inside the struct definition isn't valid Go syntax. 
- You can't declare method signatures inside a struct - those belong in interfaces.
+You can't declare method signatures inside a struct - those belong in interfaces.
 
 ```go
 type EmbeddedSaverPrinter struct {
@@ -179,6 +179,7 @@ The Go compiler doesn't need or allow method declarations inside structs because
 Conclusion
 - if your struct has methods matching an interface's method signatures, it automatically implements that interface.
 - The compiler will check if your struct implements all required methods at compile time, but there's no way to declare method signatures inside the struct definition itself.
+
 
 ## Install Packages
 - go get github.com/Pallinder/go-randomdata
@@ -268,9 +269,32 @@ websites["AWS WEBSITE URL"] =  "https://aws.amazon.com/"
 - value you can use as simple native int/string simple value
 - value you can pass around to functions
 
-
-
-Gotchas
+## Gotchas
 
 - Under same package go doesn't allow to have 
  e.g functions name or type to be same in 1 package
+
+
+## Variadic Functions
+- Function that can works with any amount of parameters
+- numbers `...int` when defining a function it helps to it creates behind the scenes dynamic slice is created that can accepts
+ int and func can accept of any numbers of int
+
+ - Passing slice of numbers e.g        // `numbers...`
+ - Recieving slice of number is func   // `...int`
+ See method: `variadicFunctionWithBaseArray` 
+
+
+ ## Concurrency
+ - Running tasks in Parallel
+ - When adding `go` keyword make functions async and runs under go routines
+   so it doesn't wait block other lines of code whick makes thins so fast that
+   if main func returns it might not return anything.
+- InOrder to wait for Go Routines to be be done we can define a channel
+- Syntax: 
+   - (make chan <type>) e.g (make chan bool)
+   - When channel needs to send data: e.g <channelVariable> <- <typeOfDate> e.g doneChan <- bool
+   - Inorder to wait on Parent side we can have <-<channelVariable> see file `Concurrency.go`
+
+Imp: If you use SAME channel for multiple goroutines. You have to wait for as many
+values as you have GoRoutines

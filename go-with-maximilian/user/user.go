@@ -16,7 +16,7 @@ func GetUserFromExportedStruct() {
 
 
 	// Empty User
-	user2, err := structs.New("", 0, "jane@example.com")
+	user2, err := structs.New("", -10, "")
 
 	if err != nil {
 		fmt.Println("Error:", err)
