@@ -87,3 +87,4 @@ func NewAdminStatic() *Admin {
 		role: "STATIC",
 	}
 }
+

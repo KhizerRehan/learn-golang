@@ -1,0 +1,1 @@
+- check test cases as reference: https://github.com/kubermatic/grafanasdk/pull/16/changes#diff-c684f1d9bcd380b17527aaee66a1de9268053851fa9ade9dc0f4c7a397ea6ddai

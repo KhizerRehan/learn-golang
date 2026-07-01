@@ -7,6 +7,8 @@ type Calculator struct {
 	val2 int
 }
 
+// reciever is a function that is associated with a type
+
 func (c Calculator) Add() int {
 	return c.val1 + c.val2
 }

@@ -50,4 +50,15 @@ func main() {
 	for i, c := range "ABCDE" {
 		fmt.Println(i, c)
 	}
+
+
+	boolsArray := []bool{true, false, true}
+
+	for _, b := range boolsArray {
+		if b {
+			fmt.Println("True", b)
+		} else {
+			fmt.Println("Value is:", b)
+		}
+	}
 }

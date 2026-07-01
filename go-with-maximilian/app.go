@@ -3,6 +3,7 @@ package main // main package is the entry point of the program
 import (
 	"fmt" // fmt package is used to print the output
 	"learn-golang/go-with-maximilian/arrayslicesmap"
+	"learn-golang/go-with-maximilian/articles"
 	"learn-golang/go-with-maximilian/concurrency"
 	"learn-golang/go-with-maximilian/fileops"
 	"learn-golang/go-with-maximilian/functions"
@@ -22,7 +23,7 @@ func main() {
 	// structsWrapper()
 	// userWrapper()
 	// customTypesWrapper()
-	interfacesWrapper()
+	// interfacesWrapper()
 	// callEmbeddedInterface()
 	// callAcceptAnyType()
 	// callGenerics()
@@ -38,6 +39,8 @@ func main() {
 	// callVariadicFunction()
 	// callConcurrency()
 	// callConcurrency1()
+
+	articles.GetNewPhones()
 }
 
 func fileopsWrapper() {
